@@ -4,6 +4,8 @@ const outputElement = document.querySelector('#output')
 const inputElement = document.querySelector('input')
 const historyElement = document.querySelector('.history')
 const buttonElement = document.querySelector('button')
+var input = document.getElementById("myInput");
+
 
 function changeInput(value){
     const inputElement = document.querySelector('input')
@@ -45,6 +47,15 @@ async function getmessage(){
 
 
 submitButton.addEventListener('click', getmessage)
+
+
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === 13) {
+    getmessage()
+    console.log('Enter key pressed!');
+
+  }
+});
 
 function clearInput(){
     inputElement.value = ''
