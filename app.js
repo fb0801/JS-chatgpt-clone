@@ -1,6 +1,8 @@
 const API_KEY = 
 const submitButton = document.querySelector('#submit')
 const outputElement = document.querySelector('#output')
+const inputElement = document.querySelector('input')
+const historyElement = document.querySelector('.history')
 
 async function getmessage(){
     const options = {
@@ -11,7 +13,7 @@ async function getmessage(){
         }, 
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
-            messages: [{role: "user", content: 'Hello There!'}],
+            messages: [{role: "user", content: inputElement.value}],
             max_tokens: 100
         })
 
@@ -21,6 +23,10 @@ async function getmessage(){
         const data = await respone.json()
         console.log(data)
         outputElement.textContent = data.choices[0].message.content
+        if(data.choices[0].message.content) {
+            const pElement = document.createElement('p')
+            pElement.textContent = inputElement.value 
+        }
 
     }catch(error) {
         console.log(error)
