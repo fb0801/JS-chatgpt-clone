@@ -35,6 +35,15 @@ h1{
     text-align: center;
     justify-content: space-between;
     height: 100vh;
+    width: 100%;
+}
+
+.bottom-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info{
@@ -56,4 +65,21 @@ input{
     rgb(0,0,0,0.05) 0px 12px 3px,
     rgb(0,0,0,0.09) 0px -3px 5px
 
+}
+
+input:focus{
+    outline: none;
+
+}
+
+.input-container{
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+}
+.input-container #submit{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    cursor: pointer;
 }
