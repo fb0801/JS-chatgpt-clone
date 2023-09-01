@@ -1,5 +1,6 @@
 const API_KEY = 
 const submitButton = document.querySelector('#submit')
+const outputElement = document.querySelector('#output')
 
 async function getmessage(){
     const options = {
@@ -16,10 +17,13 @@ async function getmessage(){
 
     }
     try{
-        await fetch('https://api.openai.com/v1/chat/completions', options)
+        const respone = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const data = await respone.json()
+        console.log(data)
+        outputElement.textContent = data.choices[0].message.content
 
-    }catch{
-
+    }catch(error) {
+        console.log(error)
     }
 }
 
